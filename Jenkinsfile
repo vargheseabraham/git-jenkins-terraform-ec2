@@ -88,19 +88,3 @@ finally {
     currentBuild.result = 'SUCCESS'
   }
 }
-
-pipeline{
-    agent any
-    stages{
-        stage('SCM Checkout'){
-            steps{
-                git 'https://github.com/vargheseabraham/myapp-ansible'
-            }
-        }
-        stage('Execute Ansible'){
-            steps{
-                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
-            }
-        }
-    }
-}

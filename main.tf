@@ -15,7 +15,6 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami                   = "ami-03d64741867e7bb94"
   instance_type         = "t2.micro"
-  vpc_security_group_ids= "sg-079fdb4f5641021e9"
   key_name             = "TerraformKeyPair"
 
   tags = {
